@@ -2,11 +2,12 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { Flex } from 'rebass'
+import { Flex, Text } from 'rebass'
 import Link from '../Link'
 import { RowFixed } from '../Row'
-import Logo from '../../assets/logo_white.svg'
-import Wordmark from '../../assets/wordmark_white.svg'
+import Logo from '../../assets/logo.png'
+// import Wordmark from '../../assets/wordmark_white.svg'
+import { TYPE } from '../../Theme'
 
 import { BasicLink } from '../Link'
 import { useMedia } from 'react-use'
@@ -15,6 +16,7 @@ const TitleWrapper = styled.div`
   text-decoration: none;
   z-index: 10;
   width: 100%;
+
   &:hover {
     cursor: pointer;
   }
@@ -22,6 +24,7 @@ const TitleWrapper = styled.div`
 
 const UniIcon = styled(Link)`
   transition: transform 0.3s ease;
+
   :hover {
     transform: rotate(-5deg);
   }
@@ -34,6 +37,7 @@ const Option = styled.div`
   color: ${({ theme }) => theme.white};
   display: flex;
   margin-left: 12px;
+
   :hover {
     opacity: 1;
   }
@@ -50,9 +54,7 @@ export default function Title() {
           <UniIcon id="link" onClick={() => history.push('/')}>
             <img width={'24px'} src={Logo} alt="logo" />
           </UniIcon>
-          {!below1080 && (
-            <img width={'84px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={Wordmark} alt="logo" />
-          )}
+          {!below1080 && <TYPE.main>&nbsp;Mintyswap</TYPE.main>}
         </RowFixed>
         {below1080 && (
           <RowFixed style={{ alignItems: 'flex-end' }}>
